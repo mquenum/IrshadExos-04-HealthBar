@@ -69,6 +69,15 @@ public class DragAndDrop : MonoBehaviour
         _press.action.canceled += StopDrag;
     }
 
+    void OnDestroy()
+    {
+
+        // launched when we press the left button
+        _press.action.performed -= RunDrag;
+        // launched when we release the left button
+        _press.action.canceled -= StopDrag;
+    }
+
     private void GetPosition(InputAction.CallbackContext obj)
     {
         // store the value

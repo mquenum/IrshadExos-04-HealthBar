@@ -34,7 +34,7 @@ public class Ally : MonoBehaviour
         }
     }
 
-    /*private void HealthManager(int damage)
+    private void HealthManager(int damage)
     {
         _health = _health - damage;
 
@@ -48,11 +48,11 @@ public class Ally : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Bomb bomb = other.gameObject.GetComponent<Bomb>();
-        Debug.Log(other.gameObject);
+        GameObject bomb = other.gameObject;
+        Bomb bombCpt = bomb.GetComponent<Bomb>();
 
-        HealthManager(bomb.Damage);
+        HealthManager(bombCpt.Damage);
 
         Destroy(bomb);
-    }*/
+    }
 }

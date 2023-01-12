@@ -6,7 +6,6 @@ using Debug = UnityEngine.Debug;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int _initialHealth = 100;
     [SerializeField] private IntVariable _health;
     // readonly property: can get the value but not set it
     // allow setting values by doing what we could do with function
@@ -28,10 +27,10 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject);
-        Bomb bomb = other.gameObject.GetComponent<Bomb>();
+        GameObject bomb = other.gameObject;
+        Bomb bombCpt = bomb.GetComponent<Bomb>();
 
-        HealthManager(bomb.Damage);
+        HealthManager(bombCpt.Damage);
 
         Destroy(bomb);
     }
