@@ -2,47 +2,56 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class HealthDisplay : MonoBehaviour
 {
     #region if we wanted to create canvas & TextMeshPro programatically
     /*private GameObject _canvas;
     private GameObject _health;
-    private TextMeshPro _healthText;*/
+    private TextMeshPro _playerHealthText;*/
     #endregion
     
-    [SerializeField] private TextMeshProUGUI _healthText;
+    [SerializeField] private TMP_Text _playerHealthText;
+    [SerializeField] private TMP_Text _allyHealthText;
+    [SerializeField] private Player _player;
+    [SerializeField] private Ally _ally;
 
-    public Player Player;
-    int _healthAmount;
+    private int _playerLastHealthAmount;
+    private int _allyLastHealthAmount;
+
+    public IntVariable _playerHealth;
+
+    private void Awake()
+    {
+        _playerLastHealthAmount = _player.Health;
+        _allyLastHealthAmount = _ally.Health;
+    }
     // Start is called before the first frame update
     void Start()
     {
-        _healthAmount = Player.Health;
-        _healthText.text = $"Player HP = {_healthAmount.ToString()}";
-        #region if we wanted to create canvas & TextMeshPro programatically
-        /*
-        // create Canvas programatically
-        _canvas = new GameObject();
-        _canvas.name = "HealthDisplay";
-        _canvas.AddComponent<Canvas>();
+        SetHealthText("Player", _player.Health);
+        SetHealthText("Ally", _ally.Health);
 
-        // create text content programatically
-        _health = new GameObject();
-        _health.transform.parent = _canvas.transform;
-        _health.name = "Health Status";
-
-        // set text content
-        _healthText = _health.AddComponent<TextMeshPro>();
-        _healthText.text = _healthAmount.ToString();
-        _healthText.fontSize = 12;
-        */
-        #endregion
+        Debug.Log(_playerHealth.Value);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (_player.Health != _playerLastHealthAmount)
+        {
+            _playerHealthText.text = SetHealthText("Player", _player.Health);
+            _playerLastHealthAmount = _player.Health;
+        } else if (_ally.Health != _allyLastHealthAmount)
+        {
+            _allyLastHealthAmount = _ally.Health;
+            _allyHealthText.text = SetHealthText("Ally", _ally.Health);
+        }
+    }
+
+    public string SetHealthText(string character, int amount)
+    {
+        return $"{character} HP = {amount.ToString()}";
     }
 }
