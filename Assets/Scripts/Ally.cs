@@ -34,7 +34,7 @@ public class Ally : MonoBehaviour
         }
     }
 
-    private void HealthManager(int damage)
+    /*private void HealthManager(int damage)
     {
         _health = _health - damage;
 
@@ -54,5 +54,5 @@ public class Ally : MonoBehaviour
         HealthManager(bomb.Damage);
 
         Destroy(bomb);
-    }
+    }*/
 }

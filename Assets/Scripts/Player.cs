@@ -7,22 +7,22 @@ using Debug = UnityEngine.Debug;
 public class Player : MonoBehaviour
 {
     [SerializeField] private int _initialHealth = 100;
-    private int _health;
+    [SerializeField] private IntVariable _health;
     // readonly property: can get the value but not set it
     // allow setting values by doing what we could do with function
-    public int Health { get { return _health; } }
+    public int Health { get { return _health.Value; } }
 
     private void Awake()
     {
-        _health = _initialHealth;
+        //_health = _initialHealth;
     }
 
     private void HealthManager(int damage)
     {
-        _health = _health - damage;
+        _health.Value = _health.Value - damage;
         
-        if (_health <= 0) {
-            _health = 0;
+        if (_health.Value <= 0) {
+            _health.Value = 0;
         }
     }
 
