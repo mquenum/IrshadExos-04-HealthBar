@@ -1,0 +1,54 @@
+{
+    "name": "GameInputs",
+    "maps": [
+        {
+            "name": "Bomb",
+            "id": "63a95b7c-30a0-4627-8b85-0ada496b9701",
+            "actions": [
+                {
+                    "name": "Press",
+                    "type": "Button",
+                    "id": "ec28a54a-b31e-43b4-8f07-dc1cd8480683",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ScreenPosition",
+                    "type": "Value",
+                    "id": "da7ec88b-8639-4510-ab3c-fa79ce2d5d10",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6ba9704f-af16-437c-bd79-509c2d84162f",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dd53b9f7-bb39-4a11-9335-2564fb4cd161",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ScreenPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
