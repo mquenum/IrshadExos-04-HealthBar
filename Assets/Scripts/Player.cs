@@ -9,8 +9,7 @@ public class Player : MonoBehaviour
     // readonly property: can get the value but not set it
     public int Health { get { return this._health; } }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         _health = _initialHealth;
     }
