@@ -13,4 +13,12 @@ public class Bomb : MonoBehaviour
             return _damage;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Character charToHurt = other.GetComponent<Character>();
+
+        charToHurt.HealthManager(_damage);
+        Destroy(gameObject);
+    }
 }
