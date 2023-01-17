@@ -11,11 +11,6 @@ public class Player : MonoBehaviour
     // allow setting values by doing what we could do with function
     public int Health { get { return _health.Value; } }
 
-    private void Awake()
-    {
-        //_health = _initialHealth;
-    }
-
     private void HealthManager(int damage)
     {
         _health.Value = _health.Value - damage;

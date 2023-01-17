@@ -71,7 +71,6 @@ public class DragAndDrop : MonoBehaviour
 
     void OnDestroy()
     {
-
         // launched when we press the left button
         _press.action.performed -= RunDrag;
         // launched when we release the left button
